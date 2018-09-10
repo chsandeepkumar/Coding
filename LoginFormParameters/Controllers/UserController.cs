@@ -26,6 +26,7 @@ namespace LoginFormParameters.Controllers
             if (ModelState.IsValid)
             {
                 con.Open();
+                //follow the using block to dispose the resources
                 SqlCommand cmd = new SqlCommand("select UserName,Password from UserInfo where UserName=@name and Password=@password", con);
                 cmd.Parameters.AddWithValue("@name", UserName);
                 cmd.Parameters.AddWithValue("@password", Password);
